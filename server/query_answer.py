@@ -38,9 +38,9 @@ search_tool = TavilySearch(
 
 client= OpenAI()
 
-os.environ["LANGFUSE_PUBLIC_KEY"] = "REDACTED_LANGFUSE_PUBLIC_KEY" 
-os.environ["LANGFUSE_SECRET_KEY"] = "REDACTED_LANGFUSE_SECRET_KEY" 
-os.environ["LANGFUSE_HOST"] = "https://cloud.langfuse.com"
+os.environ["LANGFUSE_PUBLIC_KEY"] = os.getenv("LANGFUSE_PUBLIC_KEY", "")
+os.environ["LANGFUSE_SECRET_KEY"] = os.getenv("LANGFUSE_SECRET_KEY", "")
+os.environ["LANGFUSE_HOST"] = os.getenv("LANGFUSE_HOST", "https://cloud.langfuse.com")
 
 llm = ChatOpenAI(
     model="gpt-3.5-turbo",
